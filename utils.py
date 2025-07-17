@@ -112,19 +112,19 @@ class LinkedinUrlGenerate:
 
     def checkJobLocation(self,job):
         jobLoc = "&location=" +job
-        match job.casefold():
-            case "asia":
-                jobLoc += "&geoId=102393603"
-            case "europe":
-                jobLoc += "&geoId=100506914"
-            case "northamerica":
-                jobLoc += "&geoId=102221843&"
-            case "southamerica":
-                jobLoc +=  "&geoId=104514572"
-            case "australia":
-                jobLoc +=  "&geoId=101452733"
-            case "africa":
-                jobLoc += "&geoId=103537801"
+        job_cf = job.casefold()
+        if job_cf == "asia":
+            jobLoc += "&geoId=102393603"
+        elif job_cf == "europe":
+            jobLoc += "&geoId=100506914"
+        elif job_cf == "northamerica":
+            jobLoc += "&geoId=102221843&"
+        elif job_cf == "southamerica":
+            jobLoc +=  "&geoId=104514572"
+        elif job_cf == "australia":
+            jobLoc +=  "&geoId=101452733"
+        elif job_cf == "africa":
+            jobLoc += "&geoId=103537801"
 
         return jobLoc
 
@@ -132,36 +132,16 @@ class LinkedinUrlGenerate:
         jobtExpArray = config.experienceLevels
         firstJobExp = jobtExpArray[0]
         jobExp = ""
-        match firstJobExp:
-            case "Internship":
-                jobExp = "&f_E=1"
-            case "Entry level":
-                jobExp = "&f_E=2"
-            case "Associate":
-                jobExp = "&f_E=3"
-            case "Mid-Senior level":
-                jobExp = "&f_E=4"
-            case "Director":
-                jobExp = "&f_E=5"
-            case "Executive":
-                jobExp = "&f_E=6"
-        for index in range (1,len(jobtExpArray)):
-            match jobtExpArray[index]:
-                case "Internship":
-                    jobExp += "%2C1"
-                case "Entry level":
-                    jobExp +="%2C2"
-                case "Associate":
-                    jobExp +="%2C3"
-                case "Mid-Senior level":
-                    jobExp += "%2C4"
-                case "Director":
-                    jobExp += "%2C5"
-                case "Executive":
-                    jobExp  +="%2C6"
-
-        return jobExp
-
+        if firstJobExp == "Internship":
+            jobExp = "&f_E=1"
+        elif firstJobExp == "Entry level":
+            jobExp = "&f_E=2"
+        elif firstJobExp == "Associate":
+            jobExp = "&f_E=3"
+        elif firstJobExp == "Mid-Senior level":
+            jobExp = "&f_E=4"
+            # chek for potential errors
+            
     def datePosted(self):
         datePosted = ""
         match config.datePosted[0]:
