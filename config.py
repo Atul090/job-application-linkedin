@@ -12,9 +12,9 @@ headless = False
 #PRO FEATURE - Optional! If you left above credentials fields empty. For Firefox or Chrome enter profile dir to run the bot to prevent logging in your account each time
 # get Firefox profile path by typing following url: about:profiles
 firefoxProfileRootDir = r""
-# get Chrome profile path by typing following url: chrome://version/
+# get Chrome profile path by typing following url: chrome://version/    
 chromeProfilePath = r""
-
+// onlyApplyLinkedinRecommending
 # These settings are for running Linkedin job apply bot.
 # location you want to search the jobs - ex : ["Poland", "Singapore", "New York City Metropolitan Area", "Monroe County"]
 # continent locations:["Europe", "Asia", "Australia", "NorthAmerica", "SouthAmerica", "Africa", "Australia"]
